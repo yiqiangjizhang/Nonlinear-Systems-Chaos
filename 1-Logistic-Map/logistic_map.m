@@ -56,6 +56,9 @@ figure(1);
 hold on;
 title("\textbf{Logistic map}");
 plot(R, points, '.k');
+box on
+grid on
+grid minor
 xlabel("$r$");
 ylabel("Iterations");
 hold off;
