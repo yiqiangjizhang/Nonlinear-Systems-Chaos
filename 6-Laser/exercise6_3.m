@@ -23,37 +23,39 @@ set(groot,'defaultLegendInterpreter','latex');
 %% Plot 2
 
 % Constants and Parameters
-r = -1:0.01:1;
-h = [0 0.01];
+r0 = -1;
+v = [0.1 0.01]; % Variation rate
 
-t0 = 0;
-dt = [0.1]; % Time steps (dt)
-t_final = 50; % time units
 
-N_steps = length(t0:dt:t_final)-1;
+% Time domain
+t0 = 0; % Initial time
+dt = [0.01]; % Time steps (dt)
+t_final = 1000; % time units
+N_steps = length(t0:dt:t_final)-1; % Number of time steps
 
-f1 = @(t,x,r,h) r*x - x^2 + h;
+% Function handle
+f1 = @(t,x,r) r*x - x^2;
 
-t(1:length(r),1) = 0;
-x(1:length(r),1) = 0.01;
+% Initial conditions
+t(1:length(v),1) = 0;
+x(1:length(v),1) = 0.01;
+r_x(1:length(v),1) = r0;
 
 % Loop through each h
-for k = 1:length(h)
+for j = 1:length(v)
     % Loop through each r
-    for j=1:length(r)
-        % Loop through time steps
-        for i=1:N_steps
-            t(j,i+1) = t(j,i) + dt;
-            x(j,i+1) = x(j,i) + f1(t(j,i),x(j,i),r(j),h(k))*dt;
-        end
-    x_r(k,j)=x(j,end);
+
+    for i=1:N_steps
+        r_x(j,i+1) = r_x(j,i) + v(j)*dt;
+        t(j,i+1) = t(j,i) + dt;
+        x(j,i+1) = x(j,i) + f1(t(j,i),x(j,i),r_x(j,i))*dt;
     end
 
-plot(r,x_r(k,:));
+plot(r_x(j,:),x(j,:));
 hold on
 end
 
-
+xlim([-1 4])
 xlabel('r')
 ylabel('x')
 title('Plot')
