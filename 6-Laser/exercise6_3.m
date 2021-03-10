@@ -46,8 +46,8 @@ for j = 1:length(v)
     % Loop through each r
 
     for i=1:N_steps
-        r_x(j,i+1) = r_x(j,i) + v(j)*dt;
         t(j,i+1) = t(j,i) + dt;
+        r_x(j,i+1) = r_x(j,i) + v(j)*dt;
         x(j,i+1) = x(j,i) + f1(t(j,i),x(j,i),r_x(j,i))*dt;
     end
 
