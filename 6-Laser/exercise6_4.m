@@ -76,15 +76,6 @@ legend()
 box on
 grid minor
 
-% figure(2)
-% xlim([0 600])
-% xlabel('r')
-% ylabel('x')
-% title('Plot')
-% legend()
-% box on
-% grid minor
-
 figure(2)
 xlim([-1 2])
 xlabel('r')
