@@ -61,7 +61,7 @@ hold on
 plot(t(j,:),r_x(j,:));
 
 
-figure(3)
+figure(2)
 plot(r_x(j,:),x(j,:));
 hold on
 end
@@ -69,7 +69,7 @@ hold off
 
 figure(1)
 xlim([0 600])
-xlabel('r')
+xlabel('t')
 ylabel('x')
 title('Plot')
 legend()
