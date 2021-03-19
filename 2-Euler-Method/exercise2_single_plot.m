@@ -1,7 +1,7 @@
 %% Exercise 2: Euler Approximation
 
 %-------------------------------------------------------------------------%
-% First and Second order Euler method (not working)
+% First and Second order Euler method
 %-------------------------------------------------------------------------%
 
 % Date: 27/02/2021
@@ -22,7 +22,7 @@ set(groot,'defaultLegendInterpreter','latex');
 
 % 1.1 Numerical data
 h = 0.1; % Time steps (dt)
-t_final = 1; % time units
+t_final = 10; % time units
 N_steps = ceil(t_final/h); % Number of steps, rounds up with ceil
 
 % 1.3. Declaration of solution vectors
@@ -53,12 +53,9 @@ disp(error);
 
 plot_pdf = figure(1);
 plot(t,x);
-set(groot,'defaultAxesTickLabelInterpreter','latex');  
-set(groot,'defaulttextinterpreter','latex');
-set(groot,'defaultLegendInterpreter','latex');
 xlabel('Time units')
 ylabel('x')
-title('Plot')
+title('\textbf{Plot}')
 %legend('u','v')
 box on
 grid minor
@@ -70,7 +67,8 @@ set(plot_pdf, 'Units', 'Centimeters');
 pos = get(plot_pdf, 'Position');
 set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
     'PaperSize',[pos(3), pos(4)]);
-print(plot_pdf, 'euler_approx_dt.pdf', '-dpdf', '-r0');
+print(plot_pdf, 'euler_approx.pdf', '-dpdf', '-r0');
 
 % Save png
-print(gcf,'euler_approx_dt.png','-dpng','-r600');
+print(gcf,'euler_approx.png','-dpng','-r600');
+

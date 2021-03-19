@@ -18,6 +18,7 @@ set(groot,'defaultAxesTickLabelInterpreter','latex');
 set(groot,'defaulttextinterpreter','latex');
 set(groot,'defaultLegendInterpreter','latex');
 
+%% Euler approximation
 
 % 1.1 Numerical data
 h = [1, 0.1, 0.01, 0.001, 0.0001]; % Time steps (dt)
@@ -53,14 +54,14 @@ for j=1:length(h)
     dt = t(j,end);
     sol_exact = f_exact(dt);
     disp(sol_exact);
-    error(j) = abs(sol_exact-x(end));
+    error(j) = abs(sol_exact-x(j,end));
     disp(error);
-
+    plot_pdf = figure(1);
     plot(t(j,:),x(j,:));
     hold on;
 
 end
-xlabel('Time')
+xlabel('Time units')
 ylabel('x')
 title('Plot')
 legend('dt = 1', 'dt = 0.1', 'dt = 0.01', 'dt = 0.001', 'dt = 0.0001')
@@ -68,10 +69,34 @@ box on
 grid minor
 hold off;
 
-figure(2)
+plot_pdf2 = figure(2);
 loglog(h,error);
 xlabel('Error')
 ylabel('dt')
-title('Plot')
+title('\textbf{Plot}')
 box on
 grid minor
+
+
+% Save pdf
+set(plot_pdf, 'Units', 'Centimeters');
+pos = get(plot_pdf, 'Position');
+set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf, 'euler_approx_dt.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'euler_approx_dt.png','-dpng','-r600');
+
+% Save pdf
+set(plot_pdf2, 'Units', 'Centimeters');
+pos = get(plot_pdf2, 'Position');
+set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf, 'dt_vs_error.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'dt_vs_error.png','-dpng','-r600');
+
+
+
