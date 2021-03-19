@@ -158,7 +158,7 @@ for i=1:N_steps
     end
 end
 
-figure(3);
+plot_pdf = figure(3);
 plot(t,u, t,v);
 set(groot,'defaultAxesTickLabelInterpreter','latex');  
 set(groot,'defaulttextinterpreter','latex');
@@ -171,4 +171,12 @@ box on
 grid minor
 hold off;
 
-
+% % Save pdf
+% set(plot_pdf, 'Units', 'Centimeters');
+% pos = get(plot_pdf, 'Position');
+% set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+%     'PaperSize',[pos(3), pos(4)]);
+% print(plot_pdf, 'logistic_map_r35.pdf', '-dpdf', '-r0');
+% 
+% % Save png
+% print(gcf,'logistic_map_r35.png','-dpng','-r600');
