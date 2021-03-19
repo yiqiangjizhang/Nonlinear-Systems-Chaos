@@ -53,7 +53,7 @@ end
 
 xlabel('r')
 ylabel('x')
-title('\textbf{Laser turn on simulation}')
+title('\textbf{Laser turn on bifurcation diagram}')
 legend('$h=0$', '$h=0.01$', 'location', 'northwest')
 box on
 grid minor

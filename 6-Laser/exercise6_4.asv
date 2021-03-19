@@ -66,7 +66,7 @@ hold on
 end
 hold off
 
-plot_pdf = figure(1);
+plot_pdf = figure(1)
 xlim([0 600])
 xlabel('Time units')
 ylabel('$x$ (red), $r$ (black)')
@@ -79,26 +79,27 @@ set(plot_pdf, 'Units', 'Centimeters');
 pos = get(plot_pdf, 'Position');
 set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
     'PaperSize',[pos(3), pos(4)]);
-print(plot_pdf, 'laser_turn_on_r_increase_decrease.pdf', '-dpdf', '-r0');
+print(plot_pdf, 'laser_turn_on_r0.pdf', '-dpdf', '-r0');
 
 % Save png
-print(gcf,'laser_turn_on_r_increase_decrease.png','-dpng','-r600');
+print(gcf,'laser_turn_on_r0.png','-dpng','-r600');
 
-plot_pdf2 = figure(2);
+plot_pdf2 = figure(2)
 xlim([-1 2])
 xlabel('r')
 ylabel('x')
-title('\textbf{Laser turn control parameter}')
+title('Plot')
+legend()
 box on
 grid minor
 
 
 % Save pdf
-set(plot_pdf2, 'Units', 'Centimeters');
-pos = get(plot_pdf2, 'Position');
-set(plot_pdf2, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+set(plot_pdf, 'Units', 'Centimeters');
+pos = get(plot_pdf, 'Position');
+set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
     'PaperSize',[pos(3), pos(4)]);
-print(plot_pdf2, 'laser_turn_on_control_parameter.pdf', '-dpdf', '-r0');
+print(plot_pdf, 'laser_turn_on_r0.pdf', '-dpdf', '-r0');
 
 % Save png
-print(gcf,'laser_turn_on_control_parameter.png','-dpng','-r600');
+print(gcf,'laser_turn_on_r0.png','-dpng','-r600');
