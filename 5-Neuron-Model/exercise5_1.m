@@ -66,7 +66,7 @@ for j=1:length(h)
 end
 xlim([0 1])
 xlabel('Time units')
-ylabel('Numerical Solution')
+ylabel('Membrane Potential $V(t)$ [$\mathrm{mV}$]')
 title('\textbf{Neuron model for $I=10$ and different initial conditions}')
 legend('$V_0=-60$', '$V_0=-50$', '$V_0=-40$', '$V_0=-30$', '$V_0=-20$', ...
     '$V_0=-10$', '$V_0=0$', '$V_0=+10$', '$V_0=+20$', '$V_0=+30$', '$V_0=+40$', ...

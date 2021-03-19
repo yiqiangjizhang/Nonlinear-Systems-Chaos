@@ -66,9 +66,9 @@ for j=1:length(h)
     hold on;
     end
 end
-xlim([0 5])
+xlim([0 1])
 xlabel('Time units')
-ylabel('Numerical Solution')
+ylabel('Membrane Potential $V(t)$ [$\mathrm{mV}$]')
 title('\textbf{Neuron model for $V_0=-80$ and different values of I}')
 legend('$I=-40$', '$I=-30$', '$I=-20$', '$I=-10$', '$I=0$', '$I=+10$', '$I=+20$', ...
     '$I=+30$', '$I=+40$', 'location','east');
