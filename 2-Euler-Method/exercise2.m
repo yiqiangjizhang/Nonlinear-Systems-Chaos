@@ -69,15 +69,6 @@ box on
 grid minor
 hold off;
 
-plot_pdf2 = figure(2);
-loglog(h,error);
-xlabel('Error')
-ylabel('dt')
-title('\textbf{Plot}')
-box on
-grid minor
-
-
 % Save pdf
 set(plot_pdf, 'Units', 'Centimeters');
 pos = get(plot_pdf, 'Position');
@@ -87,6 +78,16 @@ print(plot_pdf, 'euler_approx_dt.pdf', '-dpdf', '-r0');
 
 % Save png
 print(gcf,'euler_approx_dt.png','-dpng','-r600');
+
+
+plot_pdf2 = figure(2);
+loglog(h,error);
+xlabel('Error')
+ylabel('dt')
+title('\textbf{Plot}')
+box on
+grid minor
+
 
 % Save pdf
 set(plot_pdf2, 'Units', 'Centimeters');
