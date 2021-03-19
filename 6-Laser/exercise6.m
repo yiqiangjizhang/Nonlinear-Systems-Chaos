@@ -1,7 +1,7 @@
 %% Laser turn on simulation
 
 %-------------------------------------------------------------------------%
-% Exercise 6_1: Simulate the “turn on” when r is constant, r>r*=0.
+% Exercise 6_1: Simulate the 'turn on' when r is constant, r>r star=0.
 %-------------------------------------------------------------------------%
 
 % Date: 09/03/2021
