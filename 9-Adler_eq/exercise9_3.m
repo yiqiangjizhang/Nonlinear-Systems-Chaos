@@ -1,10 +1,11 @@
-%% Exercise 9
+%% Adler Equation
 
 %-------------------------------------------------------------------------%
-% Adler Equation
+% Exercise 9 : With =1/sqrt(2), calculate the trajectory for an arbitrary
+% initial condition.
 %-------------------------------------------------------------------------%
 
-% Date: 09/03/2021
+% Date: 12/03/2021
 % Author/s: Yi Qiang Ji Zhang
 % Subject: Nonlinear Systems, Chaos and Control in Engineering
 % Professor: Antonio Pons & Cristina Masoller
@@ -51,6 +52,7 @@ for j=1:length(dt)
             t(j,i+1) = t(j,i) + dt(j);
             x(j,i+1) = x(j,i) + f1(t(j,i),x(j,i),a,w)*dt(j);
         end
+        plot_pdf = figure(1);
         plot(t(j,:),x(j,:));
         hold on;
 
@@ -59,10 +61,22 @@ end
 
 xlim([0 15])
 ylim([0 8])
-xlabel('Time')
+set(gca,'YTick',0:pi/2:3*pi) 
+set(gca,'YTickLabel',{'$04','$\pi/2$','$\pi$','$3\pi/2$','$2\pi$','$5\pi/2$'})
+xlabel('Time units')
 ylabel('$\theta$')
-title('Plot')
-legend()
+title('\textbf{Adler equation}')
+% legend()
 box on
 grid minor
 hold off;
+
+% Save pdf
+set(plot_pdf, 'Units', 'Centimeters');
+pos = get(plot_pdf, 'Position');
+set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf, 'adler_eq_theta_time_init_cond.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'adler_eq_theta_time_init_cond.png','-dpng','-r600');
