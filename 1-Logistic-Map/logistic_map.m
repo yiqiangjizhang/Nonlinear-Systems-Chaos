@@ -26,8 +26,8 @@ logisticMap = @(x,r) r*x*(1-x);
 % Number of iterations for each r
 numIter = 400;
 % Range of r
-rMin = 0;
-rMax = 4.5;
+rMin = 3.5;
+rMax = 4;
 % Number of points of R
 numR = 501;
 % Initial condition
@@ -52,7 +52,7 @@ for i = 1:m
     points(:,i) = x(k+1:end);
 end
 
-figure(1);
+plot_pdf = figure(1);
 hold on;
 title("\textbf{Logistic map}");
 plot(R, points, '.k');
@@ -62,3 +62,14 @@ grid minor
 xlabel("$r$");
 ylabel("Iterations");
 hold off;
+
+
+% Save pdf
+set(plot_pdf, 'Units', 'Centimeters');
+pos = get(plot_pdf, 'Position');
+set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf, 'logistic_map_r_35_4.pdf', '-dpdf', '-r1000');
+
+% Save png
+print(gcf,'logistic_map_r_35_4.png','-dpng','-r600');
