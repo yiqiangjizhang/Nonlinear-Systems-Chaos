@@ -58,33 +58,64 @@ for j=1:length(h)
     disp(sol_exact);
     error(j) = abs(sol_exact-N(end));
     disp(error);
-
+    plot_pdf = figure(1);
     plot(t(j,:),N(j,:));
     hold on;
 
 end
-xlabel('Time')
+xlabel('Time units')
 ylabel('Numerical Solution')
-title('Plot')
+title('\textbf{Euler method using different $dt$}')
 legend('dt = 1', 'dt = 0.1', 'dt = 0.01', 'dt = 0.001', 'dt = 0.0001')
 box on
 grid minor
 hold off;
 
-figure(2)
+% Save pdf
+set(plot_pdf, 'Units', 'Centimeters');
+pos = get(plot_pdf, 'Position');
+set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf, 'numerical_plot_dt.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'numerical_plot_dt.png','-dpng','-r600');
+
+plot_pdf2 = figure(2);
 loglog(h,error);
 xlabel('Error')
 ylabel('dt')
-title('Plot')
+title('\textbf{$dt$ vs $Error$}')
 box on
 grid minor
 
+% Save pdf
+set(plot_pdf2, 'Units', 'Centimeters');
+pos = get(plot_pdf2, 'Position');
+set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf, 'dt_vs_error.pdf', '-dpdf', '-r0');
 
-figure(3)
+% Save png
+print(gcf,'dt_vs_error.png','-dpng','-r600');
+
+
+plot_pdf3 = figure(3);
 plot(t(end,:),f_exact(t(end,:)));
-xlabel('Time')
+xlabel('Time units')
 ylabel('N')
-title('Analytical solution')
+title('\textbf{Analytical solution}')
 box on
 grid minor
 hold off;
+
+
+% Save pdf
+set(plot_pdf3, 'Units', 'Centimeters');
+pos = get(plot_pdf3, 'Position');
+set(plot_pdf3, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf3, 'analytical_plot.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'analytical_plot.png','-dpng','-r600');
