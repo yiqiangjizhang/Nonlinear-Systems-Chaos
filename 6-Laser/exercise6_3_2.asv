@@ -19,11 +19,12 @@ set(groot,'defaultAxesTickLabelInterpreter','latex');
 set(groot,'defaulttextinterpreter','latex');
 set(groot,'defaultLegendInterpreter','latex');
 
-%% Laser turn on
+%% Plot 2
 
 % Constants and Parameters
-r0 = -1;
-v = [0.1 0.01]; % Variation rate
+r0 = [-1 -2 -3];
+v = 0.1; % Variation rate
+
 
 % Time domain
 t0 = 0; % Initial time
@@ -35,17 +36,16 @@ N_steps = length(t0:dt:t_final)-1; % Number of time steps
 f1 = @(t,x,r) r*x - x^2;
 
 % Initial conditions
-t(1:length(v),1) = 0;
-x(1:length(v),1) = 0.01;
-r_x(1:length(v),1) = r0;
+t(1:length(r0),1) = 0;
+x(1:length(r0),1) = 0.01;
 
 % Loop through each h
-for j = 1:length(v)
+for j = 1:length(r0)
     % Loop through each r
-
+    r_x(1:length(r0),1) = r0(j);
     for i=1:N_steps
         t(j,i+1) = t(j,i) + dt;
-        r_x(j,i+1) = r_x(j,i) + v(j)*dt;
+        r_x(j,i+1) = r_x(j,i) + v*dt;
         x(j,i+1) = x(j,i) + f1(t(j,i),x(j,i),r_x(j,i))*dt;
     end
 plot_pdf = figure(1);
@@ -57,17 +57,21 @@ xlim([-1 4])
 xlabel('r')
 ylabel('x')
 title('\textbf{Laser turn on simulation}')
-legend('$v=0.1$','$v=0.01$','location','northwest')
+legend('$r_0=-1$','$r_0=-2$','location','northwest')
 box on
 grid minor
 hold off;
 
-% Save pdf
-set(plot_pdf, 'Units', 'Centimeters');
-pos = get(plot_pdf, 'Position');
-set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
-    'PaperSize',[pos(3), pos(4)]);
-print(plot_pdf, 'laser_turn_on_v_linear.pdf', '-dpdf', '-r0');
+% Duplicate plot
+a1 = gca;
+f2 = figure;
+a2 = copyobj(a1,f2);
+xlabel('r')
+ylabel('x')
+title('Plot')
+legend()
+box on
+xlim([-3 1])
+ylim([-5e-3 15e-3])
 
-% Save png
-print(gcf,'laser_turn_on_v_linear.png','-dpng','-r600');
+% https://es.mathworks.com/matlabcentral/answers/110325-how-to-copy-a-plot

@@ -1,7 +1,7 @@
-%% Exercise 6_1
+%% Laser turn on simulation
 
 %-------------------------------------------------------------------------%
-% Laser: Simulate the “turn on” when r is constant, r>r*=0.
+% Exercise 6_1: Simulate the “turn on” when r is constant, r>r*=0.
 %-------------------------------------------------------------------------%
 
 % Date: 09/03/2021
@@ -18,7 +18,7 @@ set(groot,'defaultAxesTickLabelInterpreter','latex');
 set(groot,'defaulttextinterpreter','latex');
 set(groot,'defaultLegendInterpreter','latex');
 
-%% Plot 1
+%% Laser turn on
 
 % Constants and Parameters
 r = 1:1:3;
@@ -53,16 +53,27 @@ for j=1:length(dt)
             t(j,i+1) = t(j,i) + dt(j);
             x(j,i+1) = x(j,i) + f1(t(j,i),x(j,i),r(k))*dt(j);
         end
+        plot_pdf = figure(1);
         plot(t(j,:),x(j,:));
         hold on;
     end
     end
 end
-
-xlabel('Time')
+xlim([0 20])
+xlabel('Time units')
 ylabel('x')
-title('Plot')
-legend()
+title('\textbf{Laser turn on}')
+legend('$r=1$', '$r=2$', '$r=3$','location','east')
 box on
 grid minor
 hold off;
+
+% Save pdf
+set(plot_pdf, 'Units', 'Centimeters');
+pos = get(plot_pdf, 'Position');
+set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf, 'laser_turn_on_v.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'laser_turn_on_v.png','-dpng','-r600');

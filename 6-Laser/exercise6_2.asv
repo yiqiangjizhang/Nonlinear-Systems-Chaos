@@ -1,7 +1,7 @@
 %% Laser turn on simulation
 
 %-------------------------------------------------------------------------%
-% Exercise 6_2: Bifuracation diagram by plotting x(t=50) vs r. 
+% Exercise 6_2: Bifuracation diagram AT
 %-------------------------------------------------------------------------%
 
 % Date: 09/03/2021
@@ -53,7 +53,7 @@ end
 
 xlabel('r')
 ylabel('x')
-title('\textbf{Laser turn on simulation}')
+title('Plot')
 legend('$h=0$', '$h=0.01$', 'location', 'northwest')
 box on
 grid minor
