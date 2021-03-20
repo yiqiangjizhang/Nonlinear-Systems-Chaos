@@ -1,7 +1,7 @@
 %% Adler Equation
 
 %-------------------------------------------------------------------------%
-% Exercise 9 : With =1/sqrt(2), calculate the trajectory for an arbitrary
+% Exercise 9 : With w=1/sqrt(2), calculate the trajectory for an arbitrary
 % initial condition.
 %-------------------------------------------------------------------------%
 
