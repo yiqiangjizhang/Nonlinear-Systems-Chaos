@@ -1,7 +1,7 @@
 %% Adler Equation
 
 %-------------------------------------------------------------------------%
-% Exercise 9 : Solve Adler’s equation with =1, a=0.99 and (0)=/2
+% Exercise 9 : Solve Adler’s equation with w=1, a=0.99 and theta(0)=pi/2
 %-------------------------------------------------------------------------%
 
 % Date: 12/03/2021
