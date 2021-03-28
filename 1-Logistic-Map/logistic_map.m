@@ -60,7 +60,7 @@ box on
 grid on
 grid minor
 xlabel("$r$");
-ylabel("Iterations");
+ylabel("x(i)");
 hold off;
 
 
