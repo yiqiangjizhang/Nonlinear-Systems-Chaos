@@ -36,8 +36,8 @@ end
 plot_pdf = figure(1);
 plot(x);
 title("\textbf{Logistic map for} $r=3.5$");
-xlabel("$r$");
-ylabel("Iterations");
+xlabel("$x(i)$");
+ylabel("Iterations $i$");
 grid on;
 grid minor;
 
