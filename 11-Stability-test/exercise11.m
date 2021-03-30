@@ -48,10 +48,10 @@ set(plot_pdf, 'Units', 'Centimeters');
 pos = get(plot_pdf, 'Position');
 set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
     'PaperSize',[pos(3), pos(4)]);
-print(plot_pdf, 'delayed_logistic_eq.pdf', '-dpdf', '-r0');
+print(plot_pdf, 'stability_diagram.pdf', '-dpdf', '-r0');
 
 % Save png
-print(gcf,'delayed_logistic_eq.png','-dpng','-r600');
+print(gcf,'stability_diagram.png','-dpng','-r600');
 
 
 % Function definition
