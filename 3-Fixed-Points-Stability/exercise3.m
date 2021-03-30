@@ -92,9 +92,9 @@ grid minor
 % Save pdf
 set(plot_pdf2, 'Units', 'Centimeters');
 pos = get(plot_pdf2, 'Position');
-set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+set(plot_pdf2, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
     'PaperSize',[pos(3), pos(4)]);
-print(plot_pdf, 'dt_vs_error.pdf', '-dpdf', '-r0');
+print(plot_pdf2, 'dt_vs_error.pdf', '-dpdf', '-r0');
 
 % Save png
 print(gcf,'dt_vs_error.png','-dpng','-r600');
