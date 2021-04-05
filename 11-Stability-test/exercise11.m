@@ -43,15 +43,15 @@ legend('$\mathrm{c} = +0.4$, $\tau = 1$', '$\mathrm{c} = -0.4$, $\tau = 25$', ..
 box on
 grid minor
 
-% Save pdf
-set(plot_pdf, 'Units', 'Centimeters');
-pos = get(plot_pdf, 'Position');
-set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
-    'PaperSize',[pos(3), pos(4)]);
-print(plot_pdf, 'stability_diagram.pdf', '-dpdf', '-r0');
-
-% Save png
-print(gcf,'stability_diagram.png','-dpng','-r600');
+% % Save pdf
+% set(plot_pdf, 'Units', 'Centimeters');
+% pos = get(plot_pdf, 'Position');
+% set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+%     'PaperSize',[pos(3), pos(4)]);
+% print(plot_pdf, 'stability_diagram.pdf', '-dpdf', '-r0');
+% 
+% % Save png
+% print(gcf,'stability_diagram.png','-dpng','-r600');
 
 
 % Function definition
