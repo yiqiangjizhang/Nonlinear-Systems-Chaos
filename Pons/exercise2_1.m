@@ -20,12 +20,10 @@ set(groot,'defaultLegendInterpreter','latex');
 
 % Function handle
 a = 1;
-b = 2;
+b = -2;
 c = 3;
 d = 1;
 
-A = [a b;
-     c d];
 
 f1 = @(t,x,y) a*x + b*y;
 f2 = @(t,x,y) c*x + d*y;
@@ -33,7 +31,7 @@ f2 = @(t,x,y) c*x + d*y;
 
 % 1.1 Numerical data
 dt = [0.01]; % Time steps (dt)
-t_final = 150; % time units
+t_final = 10; % time units
 
 for j=1:length(dt)
 % N_steps(j) = ceil(t_final/h(j)); % Number of steps, rounds up with ceil
@@ -41,8 +39,8 @@ N_steps(j) = length(0:dt:t_final)-1;
 end
 
 % Initial conditions
-x0 = -2;
-y0 = +1;
+x0 = 0.2;
+y0 = +1.5;
 
 % For each h (dt)
 for j=1:length(dt)
@@ -52,23 +50,30 @@ for j=1:length(dt)
         % Euler method's update loop
         for i=1:N_steps(j)
             t(j,i+1) = t(j,i) + dt(j);
-            x(j,i+1) = x(j,i) + f1(t(j,i),x(j,i),y(i,j))*dt(j);
-            y(j,i+1) = y(j,i) + f2(t(j,i),x(j,i),y(i,j))*dt(j);
+            x(j,i+1) = x(j,i) + f1(t(j,i),x(j,i),y(j,i))*dt(j);
+            y(j,i+1) = y(j,i) + f2(t(j,i),x(j,i),y(j,i))*dt(j);
         end
-        plot(t(j,:),x(j,:));
+        plot(t(j,:),x(j,:),t(j,:),y(j,:));
         hold on;
 end
 
-xlabel('Time')
-ylabel('$\theta$')
-title('Plot')
-legend()
+plot_pdf = figure(1);
+xlabel('Time units')
+ylabel('Value')
+title('Two-dimensional linear systems')
+legend('x','y','location','southwest')
 box on
 grid minor
 hold off;
 
+% Save pdf
+set(plot_pdf, 'Units', 'Centimeters');
+pos = get(plot_pdf, 'Position');
+set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf, 'exercise2_1_2DLinearSystem.pdf', '-dpdf', '-r0');
 
-
-
+% Save png
+print(gcf,'exercise2_1_2DLinearSystem.png','-dpng','-r600');
 
 

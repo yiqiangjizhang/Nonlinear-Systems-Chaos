@@ -20,7 +20,7 @@ set(groot,'defaultLegendInterpreter','latex');
 
 % Function handle
 a = 1;
-b = 2;
+b = -2;
 c = 3;
 d = 1;
 
@@ -39,8 +39,8 @@ N_steps(j) = length(0:dt:t_final)-1;
 end
 
 % Initial conditions
-x0 = -1.25;
-y0 = +1;
+x0 = -0.1;
+y0 = +2.5;
 
 % For each h (dt)
 for j=1:length(dt)
@@ -71,9 +71,7 @@ set(plot_pdf, 'Units', 'Centimeters');
 pos = get(plot_pdf, 'Position');
 set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
     'PaperSize',[pos(3), pos(4)]);
-print(plot_pdf, 'exercise2_2DLinearSystem.pdf', '-dpdf', '-r0');
+print(plot_pdf, 'exercise1_1_pre_2DLinearSystem.pdf', '-dpdf', '-r0');
 
 % Save png
-print(gcf,'exercise2_2DLinearSystem.png','-dpng','-r600');
-
-
+print(gcf,'exercise1_1_pre_2DLinearSystem.png','-dpng','-r600');
