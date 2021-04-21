@@ -67,15 +67,15 @@ grid minor
 hold off;
 
 
-% % Save pdf
-% set(plot_pdf, 'Units', 'Centimeters');
-% pos = get(plot_pdf, 'Position');
-% set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
-%     'PaperSize',[pos(3), pos(4)]);
-% print(plot_pdf, 'exercise2_2DLinearSystem.pdf', '-dpdf', '-r0');
-% 
-% % Save png
-% print(gcf,'exercise2_1_2DLinearSystem.png','-dpng','-r600');
+% Save pdf
+set(plot_pdf, 'Units', 'Centimeters');
+pos = get(plot_pdf, 'Position');
+set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf, 'exercise2_2DLinearSystem.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'exercise2_1_2DLinearSystem.png','-dpng','-r600');
 
 
 plot_pdf2 = figure(2);
@@ -86,14 +86,14 @@ title('\textbf{Two-dimensional linear systems}')
 box on
 grid minor
 
-% % Save pdf
-% set(plot_pdf2, 'Units', 'Centimeters');
-% pos = get(plot_pdf2, 'Position');
-% set(plot_pdf2, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
-%     'PaperSize',[pos(3), pos(4)]);
-% print(plot_pdf2, 'exercise2_2DLinearSystem_xy.pdf', '-dpdf', '-r0');
-% 
-% % Save png
-% print(gcf,'exercise2_2DLinearSystem_xy.png','-dpng','-r600');
-% 
+% Save pdf
+set(plot_pdf2, 'Units', 'Centimeters');
+pos = get(plot_pdf2, 'Position');
+set(plot_pdf2, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf2, 'exercise2_2DLinearSystem_xy.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'exercise2_2DLinearSystem_xy.png','-dpng','-r600');
+
 

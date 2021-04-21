@@ -20,7 +20,7 @@ set(groot,'defaultLegendInterpreter','latex');
 
 % Function handle
 a = 1;
-b = 2;
+b = -2;
 c = 3;
 d = 1;
 
@@ -36,8 +36,14 @@ y = zeros(1, length(t));
 
 % Initial conditions
 t(1) = 0; % We begin at t=0 s
-x(1) = -1.25;
-y(1) = +1.0;
+
+alpha = 3; 
+beta  = 0.5; 
+
+% x(1) = -1.25;
+% y(1) = 1.0;
+x(1) = alpha*(-1.25) + beta*(0.2);
+y(1) = alpha*(1.0) + beta*(1.5);
 
 % Function handle
 f1 = @(t,x,y) a*x + b*y;
@@ -80,15 +86,15 @@ grid minor
 hold off;
 
 
-% Save pdf
-set(plot_pdf, 'Units', 'Centimeters');
-pos = get(plot_pdf, 'Position');
-set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
-    'PaperSize',[pos(3), pos(4)]);
-print(plot_pdf, 'exercise2_2DLinearSystem.pdf', '-dpdf', '-r0');
-
-% Save png
-print(gcf,'exercise2_1_2DLinearSystem.png','-dpng','-r600');
+% % Save pdf
+% set(plot_pdf, 'Units', 'Centimeters');
+% pos = get(plot_pdf, 'Position');
+% set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+%     'PaperSize',[pos(3), pos(4)]);
+% print(plot_pdf, 'exercise2_2DLinearSystem.pdf', '-dpdf', '-r0');
+% 
+% % Save png
+% print(gcf,'exercise2_1_2DLinearSystem.png','-dpng','-r600');
 
 
 plot_pdf2 = figure(2);
@@ -99,14 +105,13 @@ title('\textbf{Two-dimensional linear systems}')
 box on
 grid minor
 
-% Save pdf
-set(plot_pdf2, 'Units', 'Centimeters');
-pos = get(plot_pdf2, 'Position');
-set(plot_pdf2, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
-    'PaperSize',[pos(3), pos(4)]);
-print(plot_pdf2, 'exercise2_2DLinearSystem_xy.pdf', '-dpdf', '-r0');
-
-% Save png
-print(gcf,'exercise2_2DLinearSystem_xy.png','-dpng','-r600');
-
+% % Save pdf
+% set(plot_pdf2, 'Units', 'Centimeters');
+% pos = get(plot_pdf2, 'Position');
+% set(plot_pdf2, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+%     'PaperSize',[pos(3), pos(4)]);
+% print(plot_pdf2, 'exercise2_2DLinearSystem_xy.pdf', '-dpdf', '-r0');
+% 
+% % Save png
+% print(gcf,'exercise2_2DLinearSystem_xy.png','-dpng','-r600');
 

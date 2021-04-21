@@ -97,15 +97,15 @@ box on
 grid minor
 hold off;
 
-% % Save pdf
-% set(plot_pdf, 'Units', 'Centimeters');
-% pos = get(plot_pdf, 'Position');
-% set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
-%     'PaperSize',[pos(3), pos(4)]);
-% print(plot_pdf, 'rossler_system_x.pdf', '-dpdf', '-r0');
-% 
-% % Save png
-% print(gcf,'rossler_system_x.png','-dpng','-r600');
+% Save pdf
+set(plot_pdf, 'Units', 'Centimeters');
+pos = get(plot_pdf, 'Position');
+set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf, 'rossler_system_x.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'rossler_system_x.png','-dpng','-r600');
 
 
 plot_pdf2 = figure(2);
@@ -117,15 +117,15 @@ box on
 grid minor
 hold off;
 
-% % Save pdf
-% set(plot_pdf2, 'Units', 'Centimeters');
-% pos = get(plot_pdf2, 'Position');
-% set(plot_pdf2, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
-%     'PaperSize',[pos(3), pos(4)]);
-% print(plot_pdf2, 'rossler_system_y.pdf', '-dpdf', '-r0');
-% 
-% % Save png
-% print(gcf,'rossler_system_y.png','-dpng','-r600');
+% Save pdf
+set(plot_pdf2, 'Units', 'Centimeters');
+pos = get(plot_pdf2, 'Position');
+set(plot_pdf2, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf2, 'rossler_system_y.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'rossler_system_y.png','-dpng','-r600');
 
 plot_pdf3 = figure(3);
 xlabel('Time units')
@@ -136,15 +136,15 @@ box on
 grid minor
 hold off;
 
-% % Save pdf
-% set(plot_pdf3, 'Units', 'Centimeters');
-% pos = get(plot_pdf3, 'Position');
-% set(plot_pdf3, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
-%     'PaperSize',[pos(3), pos(4)]);
-% print(plot_pdf3, 'rossler_system_z.pdf', '-dpdf', '-r0');
-% 
-% % Save png
-% print(gcf,'rossler_system_z.png','-dpng','-r600');
+% Save pdf
+set(plot_pdf3, 'Units', 'Centimeters');
+pos = get(plot_pdf3, 'Position');
+set(plot_pdf3, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf3, 'rossler_system_z.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'rossler_system_z.png','-dpng','-r600');
 
 plot_pdf4 = figure(4);
 xlabel('Time units')
@@ -155,15 +155,15 @@ box on
 grid minor
 hold off;
 
-% % Save pdf
-% set(plot_pdf4, 'Units', 'Centimeters');
-% pos = get(plot_pdf4, 'Position');
-% set(plot_pdf4, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
-%     'PaperSize',[pos(3), pos(4)]);
-% print(plot_pdf4, 'rossler_system_xyz.pdf', '-dpdf', '-r0');
-% 
-% % Save png
-% print(gcf,'rossler_system_xyz.png','-dpng','-r600');
+% Save pdf
+set(plot_pdf4, 'Units', 'Centimeters');
+pos = get(plot_pdf4, 'Position');
+set(plot_pdf4, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf4, 'rossler_system_xyz.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'rossler_system_xyz.png','-dpng','-r600');
 
 
 plot_pdf5 = figure(5);
@@ -174,61 +174,61 @@ legend('$a=0$','$a=0.1$','$a=0.2$','$a=0.3$','$a=0.4$','location','best')
 title('\textbf{R\"ossler System}')
 grid on;
 grid minor
-% 
-% % Save pdf
-% set(plot_pdf5, 'Units', 'Centimeters');
-% pos = get(plot_pdf5, 'Position');
-% set(plot_pdf5, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
-%     'PaperSize',[pos(3), pos(4)]);
-% print(plot_pdf5, 'rossler_system_3D_all.pdf', '-dpdf', '-r0');
-% 
-% % Save png
-% print(gcf,'rossler_system_3D_all.png','-dpng','-r600');
+
+% Save pdf
+set(plot_pdf5, 'Units', 'Centimeters');
+pos = get(plot_pdf5, 'Position');
+set(plot_pdf5, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf5, 'rossler_system_3D_all.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'rossler_system_3D_all.png','-dpng','-r600');
 
 
 plot_pdf6 = figure(6);
 grid minor
 legend('$a=0$','$a=0.1$','$a=0.2$','$a=0.3$','$a=0.4$','location','best')
-% 
-% % Save pdf
-% set(plot_pdf6, 'Units', 'Centimeters');
-% pos = get(plot_pdf6, 'Position');
-% set(plot_pdf6, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
-%     'PaperSize',[pos(3), pos(4)]);
-% print(plot_pdf6, 'rossler_system_power_spec_x_all.pdf', '-dpdf', '-r0');
-% 
-% % Save png
-% print(gcf,'rossler_system_power_spec_x_all.png','-dpng','-r600');
+
+% Save pdf
+set(plot_pdf6, 'Units', 'Centimeters');
+pos = get(plot_pdf6, 'Position');
+set(plot_pdf6, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf6, 'rossler_system_power_spec_x_all.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'rossler_system_power_spec_x_all.png','-dpng','-r600');
 
 plot_pdf7 = figure(7);
 grid minor
 legend('$a=0$','$a=0.1$','$a=0.2$','$a=0.3$','$a=0.4$','location','best')
 
-% % Save pdf
-% set(plot_pdf7, 'Units', 'Centimeters');
-% pos = get(plot_pdf7, 'Position');
-% 
-% set(plot_pdf7, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
-%     'PaperSize',[pos(3), pos(4)]);
-% print(plot_pdf7, 'rossler_system_power_spec_y_all.pdf', '-dpdf', '-r0');
+% Save pdf
+set(plot_pdf7, 'Units', 'Centimeters');
+pos = get(plot_pdf7, 'Position');
 
-% % Save png
-% print(gcf,'rossler_system_power_spec_y_all.png','-dpng','-r600');
+set(plot_pdf7, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf7, 'rossler_system_power_spec_y_all.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'rossler_system_power_spec_y_all.png','-dpng','-r600');
 
 plot_pdf8 = figure(8);
 grid minor
 legend('$a=0$','$a=0.1$','$a=0.2$','$a=0.3$','$a=0.4$','location','best')
 
-% % Save pdf
-% set(plot_pdf8, 'Units', 'Centimeters');
-% pos = get(plot_pdf8, 'Position');
-% 
-% set(plot_pdf8, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
-%     'PaperSize',[pos(3), pos(4)]);
-% print(plot_pdf8, 'rossler_system_power_spec_z_all.pdf', '-dpdf', '-r0');
-% 
-% % Save png
-% print(gcf,'rossler_system_power_spec_z_all.png','-dpng','-r600');
+% Save pdf
+set(plot_pdf8, 'Units', 'Centimeters');
+pos = get(plot_pdf8, 'Position');
+
+set(plot_pdf8, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf8, 'rossler_system_power_spec_z_all.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'rossler_system_power_spec_z_all.png','-dpng','-r600');
 
 
 
