@@ -1,10 +1,10 @@
 %% Exercise 1
 
 %-------------------------------------------------------------------------%
-% Adler Equation
+% Two-dimensional linear systems
 %-------------------------------------------------------------------------%
 
-% Date: 09/03/2021
+% Date: 10/04/2021
 % Author/s: Yi Qiang Ji Zhang
 % Subject: Nonlinear Systems, Chaos and Control in Engineering
 % Professor: Antonio Pons & Cristina Masoller

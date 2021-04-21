@@ -1,4 +1,4 @@
-%% Exercise 1
+%% Exercise 3
 
 %-------------------------------------------------------------------------%
 % Two-dimensional linear systems
@@ -19,14 +19,8 @@ set(groot,'defaulttextinterpreter','latex');
 set(groot,'defaultLegendInterpreter','latex');
 
 % Function handle
-a = 1;
-b = 2;
-c = 3;
-d = 1;
-
-
-f1 = @(t,x,y) a*x + b*y;
-f2 = @(t,x,y) c*x + d*y;
+f1 = @(t,x,y) -x + 4*x^3;
+f2 = @(t,x,y) -2*x;
 
 
 % 1.1 Numerical data
@@ -39,39 +33,44 @@ N_steps(j) = length(0:dt:t_final)-1;
 end
 
 % Initial conditions
-x0 = -2;
-y0 = +1;
+x0 = [-0.45 -0.40 -0.30 -0.25 -0.10 0.10 0.25 0.30 0.40 0.45];
+y0 = [-0.45 -0.40 -0.30 -0.25 -0.10 0.10 0.25 0.30 0.40 0.45];
 
-% For each h (dt)
-for j=1:length(dt)
-    t(j,1) = 0; % We begin at t=0 s
-    x(j,1) = x0; % x(0)
-    y(j,1) = y0; % y(0)
-        % Euler method's update loop
-        for i=1:N_steps(j)
-            t(j,i+1) = t(j,i) + dt(j);
-            x(j,i+1) = x(j,i) + f1(t(j,i),x(j,i),y(j,i))*dt(j);
-            y(j,i+1) = y(j,i) + f2(t(j,i),x(j,i),y(j,i))*dt(j);
-        end
-        plot(t(j,:),x(j,:),t(j,:),y(j,:));
-        hold on;
+% For each initial condition
+for k=1:length(x0)
+    % For each h (dt)
+    for j=1:length(dt)
+        t(j,1) = 0; % We begin at t=0 s
+        x(j,1) = x0(k); % x(0)
+        y(j,1) = y0(k); % y(0)
+            % Euler method's update loop
+            for i=1:N_steps(j)
+                t(j,i+1) = t(j,i) + dt(j);
+                x(j,i+1) = x(j,i) + f1(t(j,i),x(j,i),y(j,i))*dt(j);
+                y(j,i+1) = y(j,i) + f2(t(j,i),x(j,i),y(j,i))*dt(j);
+            end
+            plot(x(j,:),y(j,:));
+            hold on;
+    end
 end
 
 plot_pdf = figure(1);
-xlabel('Time units')
-ylabel('Value')
-title('Two-dimensional linear systems')
-legend('x','y','location','southwest')
+xlabel('x')
+ylabel('y')
+title('\textbf{Phase portrait of the Nonlinear System}')
+% legend('x','y','location','southwest')
 box on
 grid minor
 hold off;
+
 
 % Save pdf
 set(plot_pdf, 'Units', 'Centimeters');
 pos = get(plot_pdf, 'Position');
 set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
     'PaperSize',[pos(3), pos(4)]);
-print(plot_pdf, 'exercise1_pre_2DLinearSystem.pdf', '-dpdf', '-r0');
+print(plot_pdf, 'exercise3_phase_portrait.pdf', '-dpdf', '-r0');
 
 % Save png
-print(gcf,'exercise1_pre_2DLinearSystem.png','-dpng','-r600');
+print(gcf,'exercise3_phase_portrait.png','-dpng','-r600');
+

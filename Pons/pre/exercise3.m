@@ -65,21 +65,62 @@ set(groot,'defaultLegendInterpreter','latex');
 % 
 
 % Quiver
-[X,Y] = meshgrid(-1.5:0.1:1.5,-1.5:0.1:1.5); % Creates a mesh of points
+% [X,Y] = meshgrid(-1.5:0.1:1.5,-1.5:0.1:1.5); % Creates a mesh of points
 
-% For each point (u,v) calculate the (du/dt,dv/dt)
-for i=1:size(X,1)
-    for j=1:size(Y,1)
-        value_dudt(i,j) = i+exp(-j);
-        value_dvdt(i,j) = -j;
+x = -2.5:0.01:1.5;
+y = -2.5:0.01:1.5;
 
+i=1;
+while i <= length(x)
+    dxdt(i) = x(i) + exp(0);
+    dydt(i) = 0;
+    i = i+1;
+end
+
+pos_x = size(length(x), length(y));
+pos_y = size(length(x), length(y));
+
+for i=1:20:length(x)
+    for j=1:20:length(y)
+        pos_x(i,j) = x(i);
+        pos_y(i,j) = y(j);
+        value_dxdt(i,j) = x(i) + exp(-y(j));
+        value_dydt(i,j) = -y(j);
     end
 end
 
+% Plot quiver
+quiver(value_dxdt, value_dydt,10);
+hold on
+plot(x,dxdt,y,dydt);
+hold off;
+
+% For each point (u,v) calculate the (du/dt,dv/dt)
+% for i=1:size(X,1)
+%     for j=1:size(Y,1)
+%         value_dudt(i,j) = i+exp(-j);
+%         value_dvdt(i,j) = -j;
+% 
+%     end
+% end
 
 
-
-
+% x = -1.5:0.1:1.5;
+% y = -1.5:0.1:1.5;
+% 
+% for i=1:length(x)
+%     for j=1:length(y)
+%         value_dudt(i,j) = i+exp(-j);
+%         value_dvdt(i,j) = -j;
+%     end
+% end
+% 
+% 
+% % Plot quiver
+% quiver(x_var,y_var, x,y);
+% hold on;
+% 
+% 
 
 
 

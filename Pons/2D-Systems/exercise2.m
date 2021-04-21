@@ -1,10 +1,10 @@
-%% Exercise 1
+%% Exercise 2
 
 %-------------------------------------------------------------------------%
-% Adler Equation
+% Two-dimensional linear systems
 %-------------------------------------------------------------------------%
 
-% Date: 09/03/2021
+% Date: 10/04/2021
 % Author/s: Yi Qiang Ji Zhang
 % Subject: Nonlinear Systems, Chaos and Control in Engineering
 % Professor: Antonio Pons & Cristina Masoller
@@ -20,7 +20,7 @@ set(groot,'defaultLegendInterpreter','latex');
 
 % Function handle
 a = 1;
-b = -2;
+b = 2;
 c = 3;
 d = 1;
 
@@ -30,7 +30,7 @@ f2 = @(t,x,y) c*x + d*y;
 
 
 % 1.1 Numerical data
-dt = [0.01]; % Time steps (dt)
+dt = [0.001]; % Time steps (dt)
 t_final = 10; % time units
 
 for j=1:length(dt)
@@ -39,8 +39,8 @@ N_steps(j) = length(0:dt:t_final)-1;
 end
 
 % Initial conditions
-x0 = 0.2;
-y0 = +1.5;
+x0 = -1.25;
+y0 = +1;
 
 % For each h (dt)
 for j=1:length(dt)
@@ -60,20 +60,40 @@ end
 plot_pdf = figure(1);
 xlabel('Time units')
 ylabel('Value')
-title('Two-dimensional linear systems')
+title('\textbf{Two-dimensional linear systems}')
 legend('x','y','location','southwest')
 box on
 grid minor
 hold off;
 
-% Save pdf
-set(plot_pdf, 'Units', 'Centimeters');
-pos = get(plot_pdf, 'Position');
-set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
-    'PaperSize',[pos(3), pos(4)]);
-print(plot_pdf, 'exercise2_1_2DLinearSystem.pdf', '-dpdf', '-r0');
 
-% Save png
-print(gcf,'exercise2_1_2DLinearSystem.png','-dpng','-r600');
+% % Save pdf
+% set(plot_pdf, 'Units', 'Centimeters');
+% pos = get(plot_pdf, 'Position');
+% set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+%     'PaperSize',[pos(3), pos(4)]);
+% print(plot_pdf, 'exercise2_2DLinearSystem.pdf', '-dpdf', '-r0');
+% 
+% % Save png
+% print(gcf,'exercise2_1_2DLinearSystem.png','-dpng','-r600');
 
+
+plot_pdf2 = figure(2);
+plot(x(j,:),y(j,:));
+xlabel('x')
+ylabel('y')
+title('\textbf{Two-dimensional linear systems}')
+box on
+grid minor
+
+% % Save pdf
+% set(plot_pdf2, 'Units', 'Centimeters');
+% pos = get(plot_pdf2, 'Position');
+% set(plot_pdf2, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+%     'PaperSize',[pos(3), pos(4)]);
+% print(plot_pdf2, 'exercise2_2DLinearSystem_xy.pdf', '-dpdf', '-r0');
+% 
+% % Save png
+% print(gcf,'exercise2_2DLinearSystem_xy.png','-dpng','-r600');
+% 
 

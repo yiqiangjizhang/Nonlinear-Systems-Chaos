@@ -1,10 +1,10 @@
-%% Exercise 1: Logistic map
+%% Exercise 4: Fixed points and stability analysis
 
 %-------------------------------------------------------------------------%
-% Logistic map
+% Find the fixed points and compute their stability
 %-------------------------------------------------------------------------%
 
-% Date: 27/02/2021
+% Date: 02/03/2021
 % Author/s: Yi Qiang Ji Zhang
 % Subject: Nonlinear Systems, Chaos and Control in Engineering
 % Professor: Antonio Pons & Cristina Masoller
@@ -18,71 +18,51 @@ set(groot,'defaultAxesTickLabelInterpreter','latex');
 set(groot,'defaulttextinterpreter','latex');
 set(groot,'defaultLegendInterpreter','latex');
 
-%% Logistic map plot
+%% Fixed points and stability
 
-% Declare function
-f1 = @(x,r) r*x + x^3 - x^5;
+% Limits
+initial = -0.3;
+final= 0.2;
+r1 = initial:0.001:0;
+r2 = -1/4:0.001:final;
+r3 = -1/4:0.001:0;
+r4 = 0:0.001:final;
 
-r = -100:10:100;
-x = -100:10:100;
+% Fixed points
+x1_1 = 0*r1;
+x1_2 = 0*r4;
+x2 = ((1+(1+4*r2).^(1/2))/2).^(1/2);
+x3 = ((1+(1+4*r2).^(1/2))/2).^(1/2);
+x4 = ((1-(1+4*r3).^(1/2))/2).^(1/2);
+x5 = ((1-(1+4*r3).^(1/2))/2).^(1/2);
 
-x_dot = zeros(length(r),length(x));
 
-for j=1:length(r)
-    for i=1:length(x)
-        x_dot(j,i) = f1(x(i),r(j));
-    end
-    plot(x,x_dot);
-    hold on
-end
-title("\textbf{ODE plot}");
-legend()
+% Plot of subcritial Pitchfork Bifurcation
+plot_pdf = figure(1);
+plot(r1,x1_1);
+hold on;
 box on
 grid on
 grid minor
-xlabel("$x$");
-ylabel("$\dot{x}$");
+title("\textbf{Subcritical Pitchfork Bifurcation}");
+xlabel("$r$");
+ylabel("$x$");
+plot(r2, x2, r2, x3);
+plot(r3, x4, '--', r3, x5, '--');
+plot(r4, x1_2, '--');
+
+% Plot symmetry
+plot(r3, -x4, '--', r3, -x5, '--');
+plot(r2, -x2, r2, -x3);
+hold off
 
 
-figure(2)
-plot(r,x)
-% 
-% % Number of iterations for each r
-% numIter = 400;
-% % Range of r
-% rMin = 0;
-% rMax = 4.5;
-% % Number of points of R
-% numR = 501;
-% % Initial condition
-% x0 = 0;
-% 
-% % Last 30% constant values (when it is in steady state)
-% k = 0.3*numIter;
-% 
-% % Create vector of R's
-% R = linspace(rMin, rMax, numR);
-% % Length of R
-% m = size(R, 2);
-% 
-% % Define points
-% points = zeros(numIter-k, m);
-% 
-% % Loop through each R
-% for i = 1:m
-%     % Calculate logistic map points 
-%     x = iterateFunction(x0, @(x) f1(x,R(i)), numIter);
-%     % Matrix of points (for each colum R, get the points of logistic map)
-%     points(:,i) = x(k+1:end);
-% end
-% 
-% figure(1);
-% hold on;
-% title("\textbf{Logistic map}");
-% plot(R, x, '.k');
-% box on
-% grid on
-% grid minor
-% xlabel("$r$");
-% ylabel("Iterations");
-% hold off;
+% Save pdf
+set(plot_pdf, 'Units', 'Centimeters');
+pos = get(plot_pdf, 'Position');
+set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf, 'subcritical_bif_hysteresis.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'subcritical_bif_hysteresis.png','-dpng','-r600');
