@@ -65,15 +65,15 @@ ylabel("Value");
 xlabel("Time units");
 legend("$x_3$","$y_3$","$\alpha x_1 + \beta x_2$","$\alpha y_1 + \beta y_2$", 'location', 'best');
 
-% % Save pdf
-% set(plot_pdf, 'Units', 'Centimeters');
-% pos = get(plot_pdf, 'Position');
-% set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
-%     'PaperSize',[pos(3), pos(4)]);
-% print(plot_pdf, 'exercise2_system1.pdf', '-dpdf', '-r0');
-% 
-% % Save png
-% print(gcf,'exercise2_system1.png','-dpng','-r600');
+% Save pdf
+set(plot_pdf, 'Units', 'Centimeters');
+pos = get(plot_pdf, 'Position');
+set(plot_pdf, 'PaperPositionMode', 'Auto', 'PaperUnits', 'Centimeters', ...
+    'PaperSize',[pos(3), pos(4)]);
+print(plot_pdf, 'exercise2_system1.pdf', '-dpdf', '-r0');
+
+% Save png
+print(gcf,'exercise2_system1.png','-dpng','-r600');
 
 
 plot_pdf2 = figure(2);
@@ -100,7 +100,7 @@ print(gcf,'exercise2_system2.png','-dpng','-r600');
 
 % Phase portrait
 
-h3 = figure(3);
+plot_pdf3 = figure(3);
 plot(x_S1_IC3,y_S1_IC3,x_S1_compare,y_S1_compare);
 grid on;
 grid minor;
@@ -122,7 +122,7 @@ print(plot_pdf3, 'exercise2_system1_combination.pdf', '-dpdf', '-r0');
 print(gcf,'exercise2_system1_combination.png','-dpng','-r600');
 
 
-h4 = figure(4);
+plot_pdf4 = figure(4);
 plot(x_S2_IC3,y_S2_IC3,x_S2_compare,y_S2_compare);
 grid on;
 grid minor;
